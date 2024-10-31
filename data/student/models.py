@@ -21,6 +21,10 @@ class Student(models.Model):
     status = models.BooleanField(default=True)
     student_type = models.CharField(max_length=100, choices=student_types, 
     default='member')
+    date_join = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-date_join' ]
 
 
     def __str__(self):
@@ -57,6 +61,5 @@ class CohortGroup(models.Model):
     name = models.CharField(max_length=200)
     date_join = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(Student)
-    
     def __str__(self):
         return f"{self.name}"
