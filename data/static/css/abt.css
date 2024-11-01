@@ -3,17 +3,17 @@ body {
     background-color: #f4f5fa;
 }
 
-.profile-header {
-
+.profile-head {
+    background-color: #28405c; 
+    color: #94c4c1;
     border-radius: 50px ;
     border-top-left-radius: 0px ;
     border-top-right-radius: 0px ;
-    color: white;
     padding: 40px 0;
     text-align: center;
 }
 
-.profile-header img {
+.profile-head img {
     border-radius: 50%;
     border: 5px solid white;
     width: 150px;
@@ -27,17 +27,18 @@ body {
 
 .profile-header p {
     font-size: 18px;
-    color: white;
 }
 
 .profile-content {
     padding: 30px;
+    color: #28405c;
 }
 
+
 .profile-content .card {
-    background: white;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-    border: none;
+    background-color: #94c4c1;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border: #0b1520 solid 3px;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -45,6 +46,7 @@ body {
 .profile-content .card h5 {
     font-weight: 600;
 }
+
 
 .badge-custom {
     background-color: lightgreen;
@@ -64,21 +66,20 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid dodgerblue;
+    border: 2px solid #28405c;
 }
 
 .btn-custom {
-    background-color: dodgerblue;
+    background-color: #28405c;
     color: white;
     padding: 10px 20px;
     border-radius: 25px;
 }
 
 .btn-custom:hover {
-    background-color: #0074cc;
+    border: #28405c 2px solid ;
 }
 
-/* About Us Projects and Follow Me Sections */
 .project-list ul {
     padding-left: 0;
     list-style-type: none;
@@ -103,19 +104,6 @@ body {
 
 .follow-links a:hover {
     background-color: #0074cc;
-}
-
-/* Flexbox for Project Layout */
-.project-item {
-    text-align: center;
-    padding: 10px;
-}
-
-.project-item img {
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-    object-fit: cover;
 }
 
 .project-item h6 {

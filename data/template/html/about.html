@@ -9,29 +9,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static '/css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/abt.css' %}">
 </head>
 <body>
 
     <!-- Profile Header -->
-    <section class="profile-header">
-        {% for allstudents  in students %}
+    <section class="profile-head portal">
+    
         <div class="container text-center">
-            {% if allstudents.student_profile.profile_picture.url %}
-                            <img src="{{allstudents.student_profile.profile_picture.url}}" alt="Profile" width="80" height="80" class="rounded-circle">
+            {% if student.student_profile.profile_picture.url %}
+                            <img src="{{student.student_profile.profile_picture.url}}" alt="Profile" width="80" height="80" class="rounded-circle">
                         
                             {% else %}
                             <img src="{% static '/image/profile.png' %}" alt="Profile" width="80" height="80" class="rounded-circle">
 
                             {% endif %}
-            <h1>{{allstudents.first_name}} {{allstudents.last_name}}</h1>
+            <h1>{{student.first_name}} {{student.last_name}}</h1>
 
 
             {% comment %} <p>Software Engineering Student | Cohort 2023</p> {% endcomment %}
 
-            {% if allstudents.program_set.all.exists %}
+            {% if student.program_set.all.exists %}
                         
-                        {% for program in allstudents.program_set.all %}
+                        {% for program in students.program_set.all %}
 
                           <p>{{program.courses}}</p>
                              
@@ -45,13 +45,13 @@
             
 
 
-            <p>{{allstudents.date_join |date:'M,j,Y'}}</p>
+            <p>{{student.date_join |date:'M,j,Y'}}</p>
             
 
-            {% if allstudents.student_profile.rating %}
+            {% if student.student_profile.rating %}
                         <td class=""></td>
 
-                        <span class="badge badge-custom text-success">{{allstudents.student_profile.rating}}</span>
+                        <span class="badge badge-custom text-success">{{students.student_profile.rating}}</span>
 
                         {% else %}
                         <td class="text-danger">0</td>
@@ -60,7 +60,7 @@
 
           
         </div>
-        {% endfor %}
+       
     </section>
 
     <!-- Profile Content -->
@@ -69,13 +69,13 @@
             <div class="row">
                 <!-- About the Student -->
                 <div class="col-md-8">
-                    {% for allstudents  in students %}
+
                     <div class="card p-4">
-                        <h5>{{allstudents.first_name}} {{allstudents.last_name}}</h5>
+                        <h5>{{student.first_name}} {{student.last_name}}</h5>
 
                         
-                            {% if allstudents.student_profile.bio %}
-                            <p>{{allstudents.student_profile.bio}}</p>
+                            {% if student.student_profile.bio %}
+                            <p>{{student.student_profile.bio}}</p>
                         
                             {% else %}
                             <p>No Student Bio</p>
@@ -84,14 +84,15 @@
                         
                         
                         <p></p>
-                        <p>{{allstudents.date_join |date:'M,j,Y'}}</p>
+                        <p>{{student.date_join |date:'M,j,Y'}}</p>
 
                         <button class="btn btn-custom">Send Message</button>
                     </div>
-                    {% endfor %}
                 </div>
 
                 <!-- Related Students -->
+
+
                 <div class="col-md-4">
                     <div class="card p-4">
                         <h5>Related Students (Same Cohort)</h5>
